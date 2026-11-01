@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sitio de DocMG: Sabelotodo TV, Rosco TV, Truco TV y Quiero Re Truco. Juegos, contacto y soporte.">
+  <meta name="theme-color" content="#17110d">
+  <title>DocMG · Juegos para compartir</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --fondo: #17110d;
+      --panel: #211914;
+      --texto: #f5eee7;
+      --suave: #cbbbae;
+      --acento: #ffb66e;
+      --borde: #503b2c;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--acento);
+      text-underline-offset: 4px;
+    }
+
+    a:hover { color: #ffdbb5; }
+
+    a:focus-visible {
+      outline: 3px solid var(--acento);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    .contenedor {
+      width: min(1080px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header { border-bottom: 1px solid var(--borde); }
+
+    .barra {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .marca {
+      font-size: 27px;
+      font-weight: 850;
+      letter-spacing: -1px;
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    .marca span { color: var(--acento); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    .portada {
+      padding: 80px 0 64px;
+      max-width: 800px;
+    }
+
+    .etiqueta {
+      color: var(--acento);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    h1 {
+      margin: 16px 0 22px;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      font-weight: 850;
+    }
+
+    .portada p {
+      max-width: 620px;
+      margin: 0;
+      font-size: 19px;
+      color: var(--suave);
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: 28px;
+      letter-spacing: -.7px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 23px;
+      letter-spacing: -.5px;
+    }
+
+    #juegos, #contacto { scroll-margin-top: 25px; }
+
+    .juego {
+      padding: 28px 0;
+      border-top: 1px solid var(--borde);
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+    }
+
+    .numero {
+      color: var(--acento);
+      font-size: 15px;
+      font-weight: 700;
+      padding-top: 7px;
+    }
+
+    .juego p {
+      margin: 0;
+      color: var(--suave);
+      max-width: 720px;
+    }
+
+    .enlaces {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 24px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 11px 18px;
+      background: var(--acento);
+      color: #24170e;
+      font-weight: 750;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .boton:hover {
+      background: #ffcc97;
+      color: #24170e;
+    }
+
+    .nota {
+      margin: 18px 0 0;
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    #contacto {
+      margin: 54px 0;
+      padding: 30px;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      background: var(--panel);
+    }
+
+    #contacto h2 { margin-bottom: 10px; }
+
+    #contacto p {
+      margin: 0 0 14px;
+      color: var(--suave);
+      max-width: 730px;
+    }
+
+    .correo {
+      font-size: clamp(17px, 3vw, 22px);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 24px 0 32px;
+      color: var(--suave);
+      font-size: 13px;
+    }
+
+    footer .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 24px;
+    }
+
+    @media (max-width: 600px) {
+      .barra { min-height: 74px; gap: 15px; }
+      nav { gap: 16px; font-size: 13px; }
+      .portada { padding: 52px 0 44px; }
+      h1 { letter-spacing: -1.7px; }
+      .portada p { font-size: 17px; }
+      .juego {
+        grid-template-columns: 32px 1fr;
+        gap: 12px;
+        padding: 24px 0;
+      }
+      h3 { font-size: 21px; }
+      #contacto { padding: 22px; margin: 38px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="contenedor barra">
+      <a class="marca" href="./" aria-label="DocMG, inicio">
+        Doc<span>MG</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#juegos">Juegos</a>
+        <a href="#contacto">Contacto y soporte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="portada" aria-labelledby="titulo">
+      <div class="etiqueta">Juegos de DocMG</div>
+      <h1 id="titulo">Juegos para compartir.</h1>
+      <p>
+        Preguntas, palabras y cartas. Propuestas para desafiarte,
+        reunir amigos y disfrutar una partida en familia.
+      </p>
+    </section>
+
+    <section id="juegos" aria-labelledby="titulo-juegos">
+      <h2 id="titulo-juegos">Nuestros juegos</h2>
+
+      <article class="juego">
+        <div class="numero" aria-hidden="true">01</div>
+        <div>
+          <h3>Sabelotodo TV</h3>
+          <p>
+            Un concurso de preguntas y respuestas para jugar con
+            familiares y amigos o poner a prueba tus conocimientos
+            en solitario. Disponible para dispositivos Android
+            compatibles, incluidos teléfonos, tablets y Android TV.
+          </p>
+          <div class="enlaces">
+            <a class="boton"
+               href="https://play.google.com/store/apps/details?id=com.docmg.sabelotodotv">
+              Ver en Google Play
+            </a>
+            <a href="https://sites.google.com/view/sabelotodo-tv-privacidad">
+              Política de privacidad
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="juego">
+        <div class="numero" aria-hidden="true">02</div>
+        <div>
+          <h3>Rosco TV</h3>
+          <p>
+            Un desafío de palabras, letra por letra, para poner
+            a prueba lo que sabés y compartir la emoción de
+            completar el rosco.
+          </p>
+        </div>
+      </article>
+
+      <article class="juego">
+        <div class="numero" aria-hidden="true">03</div>
+        <div>
+          <h3>Truco TV</h3>
+          <p>
+            Truco argentino con la mesa en el televisor y las
+            cartas de cada jugador en su celular.
+          </p>
+        </div>
+      </article>
+
+      <article class="juego">
+        <div class="numero" aria-hidden="true">04</div>
+        <div>
+          <h3>Quiero Re Truco</h3>
+          <p>
+            Truco argentino para organizar una mesa y compartir
+            una partida desde el celular.
+          </p>
+        </div>
+      </article>
+
+      <p class="nota">
+        Para consultar disponibilidad y novedades de los demás
+        juegos, escribinos.
+      </p>
+    </section>
+
+    <section id="contacto" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto">Contacto y soporte</h2>
+      <p>
+        ¿Necesitás ayuda con un juego o querés enviar una sugerencia?
+        Indicá el nombre del juego, el dispositivo que usás y
+        contanos qué ocurrió.
+      </p>
+      <a class="correo" href="mailto:thedocmg@gmail.com">
+        thedocmg@gmail.com
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <span>DocMG · Juegos para compartir.</span>
+      <a href="https://sites.google.com/view/sabelotodo-tv-privacidad">
+        Privacidad de Sabelotodo TV
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
